@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEURAL ECHOES - Interactive Cyberpunk Story</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="neural-loader">
+            <div class="neural-pulse"></div>
+            <div class="loading-text">INITIALIZING NEURAL INTERFACE...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="background-effects">
+        <div class="matrix-rain"></div>
+        <div class="neon-grid"></div>
+        <div class="floating-particles"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo">
+                <h1 class="glitch-text" data-text="NEURAL ECHOES">NEURAL ECHOES</h1>
+                <div class="subtitle">Interactive Cyberpunk Experience</div>
+            </div>
+            <div class="neural-status">
+                <div class="status-indicator"></div>
+                <span>NEURAL LINK ACTIVE</span>
+            </div>
+        </header>
+
+        <!-- Story Interface -->
+        <main class="story-interface">
+            <!-- Story Display -->
+            <div class="story-display">
+                <div class="story-header">
+                    <div class="chapter-info">
+                        <span class="chapter-number">CHAPTER <span id="chapter-num">01</span></span>
+                        <span class="location" id="current-location">NEO-TOKYO UNDERGROUND</span>
+                    </div>
+                    <div class="neural-activity">
+                        <div class="brain-wave"></div>
+                        <span>NEURAL ACTIVITY</span>
+                    </div>
+                </div>
+
+                <div class="story-content">
+                    <div class="story-text" id="story-text">
+                        <div class="typewriter-text">
+                            Welcome to Neo-Tokyo, 2087. The neon-drenched streets pulse with digital life as rain cascades down towering corporate monoliths. You are Alex Chen, a freelance data archaeologist who just received a mysterious message: "The memories you seek are buried in the old neural networks. Find me in the Underground. - Ghost Protocol"
+                        </div>
+                    </div>
+
+                    <div class="character-status">
+                        <div class="status-bar">
+                            <div class="stat">
+                                <span class="stat-label">TRUST</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill trust-fill" style="width: 50%"></div>
+                                </div>
+                                <span class="stat-value" id="trust-value">50</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">STEALTH</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill stealth-fill" style="width: 75%"></div>
+                                </div>
+                                <span class="stat-value" id="stealth-value">75</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">INTEL</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill intel-fill" style="width: 60%"></div>
+                                </div>
+                                <span class="stat-value" id="intel-value">60</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Choice Interface -->
+            <div class="choice-interface">
+                <div class="choices-header">
+                    <div class="neural-pulse-indicator"></div>
+                    <h3>NEURAL DECISION MATRIX</h3>
+                    <div class="timer-display">
+                        <div class="timer-circle">
+                            <div class="timer-fill"></div>
+                        </div>
+                        <span id="choice-timer">30</span>
+                    </div>
+                </div>
+
+                <div class="choices-container" id="choices-container">
+                    <div class="choice-card" data-choice="1">
+                        <div class="choice-icon">🌆</div>
+                        <div class="choice-content">
+                            <div class="choice-title">Investigate the Corporate District</div>
+                            <div class="choice-description">Head to the towering megacorp headquarters where the message might have originated.</div>
+                            <div class="choice-consequences">
+                                <span class="consequence trust">+10 TRUST</span>
+                                <span class="consequence stealth">-5 STEALTH</span>
+                            </div>
+                        </div>
+                        <div class="choice-glow"></div>
+                    </div>
+
+                    <div class="choice-card" data-choice="2">
+                        <div class="choice-icon">🚇</div>
+                        <div class="choice-content">
+                            <div class="choice-title">Descend into the Underground</div>
+                            <div class="choice-description">Follow the cryptic message directly to the neural network hub beneath the city.</div>
+                            <div class="choice-consequences">
+                                <span class="consequence stealth">+15 STEALTH</span>
+                                <span class="consequence intel">+10 INTEL</span>
+                            </div>
+                        </div>
+                        <div class="choice-glow"></div>
+                    </div>
+
+                    <div class="choice-card" data-choice="3">
+                        <div class="choice-icon">🔍</div>
+                        <div class="choice-content">
+                            <div class="choice-title">Analyze the Message</div>
+                            <div class="choice-description">Use your data archaeology skills to trace the message's origin and encryption patterns.</div>
+                            <div class="choice-consequences">
+                                <span class="consequence intel">+20 INTEL</span>
+                                <span class="consequence trust">-5 TRUST</span>
+                            </div>
+                        </div>
+                        <div class="choice-glow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="navigation-panel">
+                <button class="nav-btn" id="restart-btn">
+                    <span class="btn-icon">🔄</span>
+                    <span class="btn-text">RESTART</span>
+                </button>
+                <button class="nav-btn" id="back-btn" disabled>
+                    <span class="btn-icon">⬅</span>
+                    <span class="btn-text">BACK</span>
+                </button>
+                <button class="nav-btn" id="save-btn">
+                    <span class="btn-icon">💾</span>
+                    <span class="btn-text">SAVE</span>
+                </button>
+                <button class="nav-btn" id="settings-btn">
+                    <span class="btn-icon">⚙</span>
+                    <span class="btn-text">SETTINGS</span>
+                </button>
+            </div>
+        </main>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settings-panel">
+            <div class="settings-header">
+                <h3>NEURAL INTERFACE SETTINGS</h3>
+                <button class="close-btn" id="close-settings">×</button>
+            </div>
+            <div class="settings-content">
+                <div class="setting-group">
+                    <label>Audio Effects</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="audio-toggle" checked>
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Typewriter Speed</label>
+                    <input type="range" id="typewriter-speed" min="20" max="100" value="50">
+                </div>
+                <div class="setting-group">
+                    <label>Neural Effects</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="effects-toggle" checked>
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Auto-Save</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="autosave-toggle" checked>
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievement System -->
+        <div class="achievements-panel" id="achievements">
+            <div class="achievement-notification" id="achievement-notification">
+                <div class="achievement-icon">🏆</div>
+                <div class="achievement-text">
+                    <div class="achievement-title">ACHIEVEMENT UNLOCKED</div>
+                    <div class="achievement-description">First Choice Made</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="ambient-sound" loop>
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwgBSmH2O/LfS0GI3bF8dyOOggXcJTy86xZFgA2h9js0ncjBiJqus3b7qZKDwFGqe3k6KdBBwVfutbU5H8zBQY7k8/rz3k+BBV7rtvX6sZvKQA7gc1dGrpHnuRCXjO5/h5VwBrKdIxkxXTAa2HdyMDqb9FjLgj4z3oUFY2ZLZfhVqBgFZvvwXAE6wQAqQ9gLnMYdyXBF8fhKwCGwMvkOJFBJEZSJGIvNALzQQEEkOFBIIEIZuCRhQAwOhCQAACCA=" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
