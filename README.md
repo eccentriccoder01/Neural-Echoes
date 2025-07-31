@@ -1,4 +1,4 @@
-<div align="center"><img src="N.png" style="width: 220px; height: 220px;" /></div>
+<div align="center"><img src="N.jpg" style="width: 220px; height: 220px;" /></div>
 
 # <div align="center">NEURAL ECHOES</div>
 
